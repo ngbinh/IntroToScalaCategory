@@ -1,0 +1,17 @@
+<h2>Natural transformation</h2>
+
+<p>A way of transforming one functor into another while respecting the internal structure (i.e. the composition of morphisms) of the categories involved</p>
+
+<pre class="fragment">
+  <code data-trim>
+trait NaturalTransformation[F[_], G[_]] { self =>
+  def apply[A](fa: F[A]): G[A]
+
+  def compose[E[_]](f: NaturalTransformation[E, F])
+  : NaturalTransformation[E, G] =
+    new NaturalTransformation[E, G] {
+      def apply[A](fa: E[A]): G[A] = self.apply(f(fa))
+    }
+}
+  </code>
+</pre>

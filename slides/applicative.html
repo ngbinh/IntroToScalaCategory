@@ -1,0 +1,28 @@
+<h2>Applicative</h2>
+
+<pre class="fragment">
+  <code data-trim>
+trait Applicative[F[_]] extends Apply[F] {
+  /**
+   * `pure` lifts any value into the Applicative Functor.
+   *
+   * Applicative[Option].pure(10) = Some(10)
+   */
+  def pure[A](x: A): F[A]
+}
+  </code>
+</pre>
+
+<pre class="fragment">
+  <code data-trim>
+Applicative[Option].pure(1)
+Applicative[List].pure(1)
+  </code>
+</pre>
+
+<pre class="fragment">
+    Applicative composes!
+<code data-trim>
+(Applicative[List] compose Applicative[Option]).pure(1)
+</code>
+</pre>

@@ -1,0 +1,32 @@
+[
+    "index.md",
+    "agenda.html",
+    "introduction-to-category-theory.html",
+    "group-like-structures.html",
+    [
+        "category.html",
+        "category-example.html"
+    ],
+    [
+        "monadic-programming-in-scala.html",
+        "is-scala-a-monadic-programming-language.html",
+        "for-composition.html",
+        "for-composition-desugaring.html"
+    ],
+    [
+        "monadic-programming-with-cats.html",
+        "semigroup.html",
+        "monoid.html",
+        "functor.html",
+        "apply.html",
+        "applicative.html",
+        "monad.html"
+    ],
+    "what-really-is-a-monad.html",
+    "functor-category.html",
+    "natural-transformation.html",
+    [
+      "monad-definition.html",
+      "monoid-definition.html"
+    ]
+]

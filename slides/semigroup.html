@@ -1,0 +1,18 @@
+<h2>Semigroup</h2>
+
+<pre class="fragment">
+  <code data-trim>
+trait Semigroup[A] {
+  /**
+   * Associative operation taking which combines two values.
+   */
+  def combine(x: A, y: A): A
+}
+  </code>
+</pre>
+
+<pre class="fragment">
+  <code data-trim>
+    ((a combine b) combine c) == (a combine (b combine c))
+  </code>
+</pre>

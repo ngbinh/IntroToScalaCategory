@@ -1,0 +1,31 @@
+<h2>Functor category</h2>
+
+<pre class="fragment">
+  <code data-trim>
+trait GenericFunctor[-->[_, _], --->[_, _], F[_]] {
+  def fmap[A, B](f: A ->> B): F[A] ->>> F[B]
+}
+  </code>
+</pre>
+
+<pre class="fragment">
+  <code data-trim>
+type EndoFunctor[->>[_, _], F[_]] = GenericFunctor[->>, ->>, F]
+// def fmap[A, B](f: A ->> B): F[A] ->> F[B]
+  </code>
+</pre>
+
+<pre class="fragment">
+<code data-trim>
+type ConstantFunctor[->>[_, _], ->>>[_, _], C] =
+  GenericFunctor[->>,->>>,({type F[x] = C})#F]
+// def fmap[A, B](f: A ->> B): C ->>> C
+</code>
+</pre>
+
+<pre class="fragment">
+<code data-trim>
+type Functor[F[_]] = EndoFunctor[Function1, F]
+// def fmap[A, B](f: A => B): F[A] => F[B]
+</code>
+</pre>

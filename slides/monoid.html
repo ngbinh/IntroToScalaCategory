@@ -1,0 +1,21 @@
+<h2>Monoid</h2>
+
+<pre class="fragment">
+  <code data-trim>
+/**
+ * A monoid is a semigroup with an identity.
+ */
+trait Monoid[A] extends Semigroup[A] {
+  /**
+   * Return the identity element for this monoid.
+   */
+  def empty: A
+}
+  </code>
+</pre>
+
+<pre class="fragment">
+  <code data-trim>
+    combine(x, empty) == combine(empty, x) == x
+  </code>
+</pre>

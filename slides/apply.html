@@ -1,0 +1,24 @@
+<h2>Apply</h2>
+
+<pre class="fragment">
+  <code data-trim>
+trait Apply[F[_]] extends Functor[F] {
+  /**
+   * Given a value and a function in the Apply context, applies the
+   * function to the value.
+   */
+  def ap[A, B](fa: F[A])(f: F[A => B]): F[B]
+}
+  </code>
+</pre>
+
+<pre class="fragment">
+  Apply also compose
+</pre>
+
+<pre  class="fragment">
+<code data-trim>
+val intToString: Int => String = _.toString
+Apply[Option].ap(Some(1))(Some(intToString))
+</code>
+</pre>

@@ -1,0 +1,19 @@
+<h2>Monad</h2>
+
+<pre class="fragment">
+  <code data-trim>
+trait Monad[F[_]] extends Applicative[F] {
+  def flatMap[A, B](fa: F[A])(f: A => F[B]): F[B]
+
+  /**
+   * also commonly called join
+   */
+  def flatten[A](ffa: F[F[A]]): F[A] =
+    flatMap(ffa)(identity)
+}
+  </code>
+</pre>
+
+<pre class="fragment">
+     Not all Monads compose. This means that even if M[_] and N[_] are both Monads, M[N[_]] is not guaranteed to be a Monad
+</pre>

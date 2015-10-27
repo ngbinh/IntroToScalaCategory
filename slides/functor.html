@@ -1,0 +1,24 @@
+<h2>Functor</h2>
+
+<pre class="fragment">
+  <code data-trim>
+/*
+ * A structure-preserving map between two algebraic structures.
+ */
+trait Functor[F[_]] {
+  def map[A, B](fa: F[A])(f: A => B): F[B]
+}
+  </code>
+</pre>
+
+<pre class="fragment">
+  Functors compose! Given any functor F[_] and any functor G[_] we can create a new functor F[G[_]] by composing them:
+  <code data-trim>
+val listOpt = Functor[List] compose Functor[Option]
+listOpt.map(List(Some(1), None, Some(3)))(_ + 1)
+  </code>
+</pre>
+
+<code data-trim class="fragment">
+List(Some(2), None, Some(4))
+</code>

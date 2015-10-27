@@ -1,0 +1,15 @@
+<h2>Monadic programming in Scala</h2>
+
+<pre class="fragment">
+  <code data-trim>
+val lengthOption = convertNumericStringToInt(m.group(3).trim)
+// => Option[Int]
+val timeUnitOption = durationMap.get(m.group(4).trim)
+// => Option[String]
+
+for {
+    i <- lengthOption
+    tu <- timeUnitOption
+} yield FiniteDuration(i, tu)  // => Option[FiniteDuration]
+  </code>
+</pre>
